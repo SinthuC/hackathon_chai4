@@ -5,7 +5,10 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
+
 import { MoneyDetailPage } from '../pages/money-detail/money-detail';
+
+import { StartPage } from '../pages/start/start';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -15,7 +18,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     MyApp,
     HomePage,
     ListPage,
-    MoneyDetailPage
+    MoneyDetailPage,
+    StartPage,
   ],
   imports: [
     BrowserModule,
@@ -26,7 +30,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     MyApp,
     HomePage,
     ListPage,
-    MoneyDetailPage
+    MoneyDetailPage,
+    StartPage,
   ],
   providers: [
     StatusBar,
