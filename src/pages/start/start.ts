@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,Nav } from 'ionic-angular';
 
-import { HomePage } from '../home/home';
+import { HomePage } from '../home/home'
 /**
  * Generated class for the StartPage page.
  *

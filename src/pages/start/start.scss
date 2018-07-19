@@ -34,6 +34,8 @@ page-start {
             color: #000000;
           }
         }
-      
+        .scroll-content {
+          overflow-y: auto !important;
+        }
       }
 }
