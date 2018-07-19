@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content center text-center>
+
+
+  <ion-item center text-center>
+    <label>รายรับทั้งหมด </label>
+    <input>
+  </ion-item>
+  <ion-item center text-center>
+    <label>จำนวนเงินที่ต้องการออม </label>
+    <input>
+  </ion-item>
+
+  <label>ค่าใช้จ่ายรายเดือน</label>
+  <button ion-button (click)="Add()">เพิ่มรายจ่าย</button>
+
+  <ion-item *ngFor="let att of anArray; let idx = index" center text-center>
+    <label>{{att.label}}{{idx+1}} รายละเอียดค่าใช้จ่าย</label>
+    <input type="text" text-center [(ngModel)]="anArray[idx].value">
+    <label> จำนวนเงิน </label>
+    <input type="text" text-center [(ngModel)]="anArray[idx].value">
+  </ion-item>
+  <ion-card *ngIf="data">
+    <ion-item *ngFor="let att of anArray;">
+      <div class="card-title">{{att.value}}</div>
+    </ion-item>
+  </ion-card>
+
+  <div>
+    <button ion-button>save</button>
+  </div>
+
+</ion-content>
