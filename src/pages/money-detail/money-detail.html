@@ -1,40 +1,41 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
+    <ion-title>รายละเอียดการใช้เงิน</ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content center text-center>
-
-
-  <ion-item center text-center>
-    <label>รายรับทั้งหมด </label>
-    <input>
+<h2>ข้อมูลการเงินของเดือน {{monthN}}</h2>
+  <ion-item>
+    <ion-label fixed>รายรับทั้งหมด</ion-label>
+    <ion-input type="number"></ion-input>
   </ion-item>
-  <ion-item center text-center>
-    <label>จำนวนเงินที่ต้องการออม </label>
-    <input>
+
+  <ion-item>
+    <ion-label fixed>เงินออม</ion-label>
+    <ion-input type="number"></ion-input>
   </ion-item>
 
   <label>ค่าใช้จ่ายรายเดือน</label>
   <button ion-button (click)="Add()">เพิ่มรายจ่าย</button>
-
-  <ion-item *ngFor="let att of anArray; let idx = index" center text-center>
-    <label>{{att.label}}{{idx+1}} รายละเอียดค่าใช้จ่าย</label>
-    <input type="text" text-center [(ngModel)]="anArray[idx].value">
-    <label> จำนวนเงิน </label>
-    <input type="text" text-center [(ngModel)]="anArray[idx].value">
+  <ion-row *ngFor="let att of anArray; let idx = index" center text-center>
+    <ion-col>
+  <ion-item >
+    <ion-label>{{att.label}}{{idx+1}}.รายละเอียดค่าใช้จ่าย</ion-label>
+    <ion-input type="text" text-center [(ngModel)]="anArray[idx].value"></ion-input>
+     
   </ion-item>
-  <ion-card *ngIf="data">
-    <ion-item *ngFor="let att of anArray;">
-      <div class="card-title">{{att.value}}</div>
-    </ion-item>
-  </ion-card>
+      <ion-item> 
+          <ion-label> จำนวนเงิน </ion-label>
+          <ion-input type="text" text-center [(ngModel)]="anArray[idx].value"></ion-input>
+        </ion-item>
+  </ion-col>
+</ion-row>
 
   <div>
-    <button ion-button>save</button>
+    <button ion-button>Save</button>
   </div>
 
 </ion-content>
