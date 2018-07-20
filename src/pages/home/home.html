@@ -1,4 +1,4 @@
-<ion-header >
+<ion-header>
   <ion-navbar color="primary">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
@@ -7,28 +7,28 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding overflow-scroll="false"  center text-center>
-  <ion-label class="myOverlay2">11/05/2018</ion-label>
+<ion-content padding overflow-scroll="false" center text-center>
   <ion-card class="myCard" center style="border:none;">
+    <ion-label class="myOverlay2">11/05/2018</ion-label>
     <img src="https://i.stack.imgur.com/ma4sx.png">
     <div class="myOverlay">
       <ion-label>จำนวนเงินคงเหลือที่สามารถใช้ได้ในวันนี้</ion-label>
-      <ion-label style="font-size: 100%">500 bath</ion-label>
+      <ion-label style="font-size: 40px">500 bath</ion-label>
     </div>
   </ion-card>
   <button ion-button (click)="reModal()">+</button>
   <button ion-button (click)="payModal()">-</button>
 </ion-content>
 
-<ion-footer >
+<ion-footer>
   <ion-toolbar color="primary">
     <ion-row style="text-align:center;padding:0;margin:0">
-      <ion-col style="text-align:center;padding:0;margin:0" >
-          <button ion-button full color="danger"(click)="stateModal()">รายละเอียด</button>
-      </ion-col >
       <ion-col style="text-align:center;padding:0;margin:0">
-          <button ion-button full color="secondary" (click)="sumModal()">สรุป</button>
-        </ion-col>
+        <button ion-button full color="danger" (click)="stateModal()">รายละเอียด</button>
+      </ion-col>
+      <ion-col style="text-align:center;padding:0;margin:0">
+        <button ion-button full color="secondary" (click)="sumModal()">สรุป</button>
+      </ion-col>
     </ion-row>
   </ion-toolbar>
 </ion-footer>
