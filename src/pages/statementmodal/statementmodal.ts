@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 
 /**
  * Generated class for the StatementmodalPage page.
@@ -15,11 +15,15 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class StatementmodalPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private view: ViewController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad StatementmodalPage');
+  }
+
+  closeModal() {
+    this.view.dismiss();
   }
 
 }
