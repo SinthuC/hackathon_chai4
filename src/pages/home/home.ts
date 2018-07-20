@@ -60,6 +60,25 @@ ngOnDestroy(){
   saveData(){
     this.storage.set('month', this.month);
   }
-  
+  payModal() {
+    const paymodal = this.modal.create('PaymodalPage');
+
+    paymodal.present();
+  }
+  reModal() {
+    const remodal = this.modal.create('RecivemodalPage');
+
+    remodal.present();
+  }
+  stateModal() {
+    const stamodal = this.modal.create('StatementmodalPage');
+
+    stamodal.present();
+  }
+  sumModal() {
+    const sum = this.modal.create('SummarymodalPage');
+
+    sum.present();
+  }
 
 }
