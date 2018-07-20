@@ -7,26 +7,26 @@
 <h2>ข้อมูลการเงินของเดือน {{monthN}}</h2>
   <ion-item>
     <ion-label fixed>รายรับทั้งหมด</ion-label>
-    <ion-input type="number"></ion-input>
+    <ion-input type="number" [(ngModel)]="month.income"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label fixed>เงินออม</ion-label>
-    <ion-input type="number"></ion-input>
+    <ion-input type="number" [(ngModel)]="month.savingNeed"></ion-input>
   </ion-item>
 
   <label>ค่าใช้จ่ายรายเดือน</label>
   <button ion-button (click)="Add()">เพิ่มรายจ่าย</button>
-  <ion-row *ngFor="let att of anArray; let idx = index" center text-center>
+  <ion-row *ngFor="let m of month.earlyExpense; let idx = index" center text-center>
     <ion-col>
   <ion-item >
-    <ion-label>{{att.label}}{{idx+1}}.รายละเอียดค่าใช้จ่าย</ion-label>
-    <ion-input type="text" text-center [(ngModel)]="anArray[idx].value"></ion-input>
+    <ion-label>{{idx+1}}.รายละเอียดค่าใช้จ่าย</ion-label>
+    <ion-input type="text" text-center [(ngModel)]="m.detail"></ion-input>
      
   </ion-item>
       <ion-item> 
           <ion-label> จำนวนเงิน </ion-label>
-          <ion-input type="text" text-center [(ngModel)]="anArray[idx].value"></ion-input>
+          <ion-input type="text" text-center [(ngModel)]="m.amount"></ion-input>
         </ion-item>
   </ion-col>
 </ion-row>

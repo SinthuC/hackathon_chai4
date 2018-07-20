@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
 
 /**
  * Generated class for the SummarymodalPage page.
@@ -14,12 +15,15 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
   templateUrl: 'summarymodal.html',
 })
 export class SummarymodalPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams,private view: ViewController) {
+idx:number
+  constructor(public navCtrl: NavController, public navParams: NavParams,private view: ViewController,private storage:Storage) {
+    this.idx = navParams.get('idx');
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad SummarymodalPage');
+    this.storage.get('month').then((val)=>{
+      
+    });
   }
 
   closeModal(){

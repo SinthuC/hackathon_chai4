@@ -1,21 +1,23 @@
 import { Component } from '@angular/core';
 import { NavController, ModalController,Nav, AlertController } from 'ionic-angular';
 import { Month } from '../../models/month';
+import { Day } from '../../models/day'
 import { Storage } from '@ionic/storage';
 import { MoneyDetailPage } from '../money-detail/money-detail';
+import { Events } from 'ionic-angular';
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
   month:Month[];
-
-  constructor(public navCtrl: NavController,public modal:ModalController,private nav:Nav,private alertCtrl:AlertController,private storage: Storage) {
-  
-
-    
+  private date = new Date();
+  constructor(public navCtrl: NavController,public modal:ModalController,private nav:Nav,private alertCtrl:AlertController,private storage: Storage,private events:Events) {
+    events.subscribe('paid', () => {
+      this.navCtrl.setRoot(this.navCtrl.getActive().component);
+    })
   }
-
   ngOnInit(){
 
 
@@ -57,23 +59,18 @@ export class HomePage {
   saveData(){
     this.storage.set('month', this.month);
   }
-  payModal() {
-    const paymodal = this.modal.create('PaymodalPage');
+  payModal(idx:number) {
+    const paymodal = this.modal.create('PaymodalPage',{'idx':idx});
 
     paymodal.present();
   }
-  reModal() {
-    const remodal = this.modal.create('RecivemodalPage');
+  reModal(idx:number) {
+    const remodal = this.modal.create('RecivemodalPage',{'idx':idx});
 
     remodal.present();
   }
-  stateModal() {
-    const stamodal = this.modal.create('StatementmodalPage');
-
-    stamodal.present();
-  }
-  sumModal() {
-    const sum = this.modal.create('SummarymodalPage');
+  sumModal(idx:number) {
+    const sum = this.modal.create('SummarymodalPage',{'idx':idx});
 
     sum.present();
   }

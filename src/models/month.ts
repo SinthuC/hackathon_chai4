@@ -1,7 +1,7 @@
 import {Day} from '../models/day'
 
 export class Month{
-    
+        month?:number;
         income?: number;
         savingNeed?:number;
         earlyExpense?:any[];
@@ -13,6 +13,7 @@ export class Month{
         dayInMonth?:number
     
         constructor() {
+            this.month = null;
             this.income = 0; 
             this.savingNeed = 0;
             this.earlyExpense = null;
