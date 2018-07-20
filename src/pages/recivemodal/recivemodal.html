@@ -7,16 +7,28 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>recivemodal</ion-title>
+    <ion-title>รายรับ</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-    <h1>รายรับ</h1>
-    รายละเอียด<input> <br><br>
-    จำนวนเงิน <input> บาท <br><br>
-    หมายเหตุ <input><br>
-    <button>บันทึก  </button>
+    <h1>กรอกรายละเอียดรายรับ</h1>
+<ion-item>
+    <ion-label fixed>รายละเอียด</ion-label>
+    <ion-input type="text"></ion-input>
+  </ion-item>
+  <ion-item>
+      <ion-label fixed>จำนวนเงิน</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label fixed>หมายเหตุ</ion-label>
+        <ion-input type="text"></ion-input>
+      </ion-item>
+          
+  <div>
+      <button ion-button>Save</button>
+    </div>
 </ion-content>
