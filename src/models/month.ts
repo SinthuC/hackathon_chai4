@@ -9,6 +9,8 @@ export class Month{
         day?:Day[];
         moneyLeft?:number;
         isSuccess:boolean;
+        startDay?:number
+        dayInMonth?:number
     
         constructor() {
             this.income = 0; 
@@ -18,7 +20,8 @@ export class Month{
             this.day = null;
             this.moneyLeft = 0;
             this.isSuccess = false;
-    
+            this.startDay = null;
+            this.dayInMonth = null;
         
         }
     }

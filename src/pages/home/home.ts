@@ -11,14 +11,20 @@ export class HomePage {
   month:Month[];
 
   constructor(public navCtrl: NavController,public modal:ModalController,private nav:Nav,private alertCtrl:AlertController,private storage: Storage) {
-   
+  
+
     
   }
 
   ngOnInit(){
+
+
+  }
+
+  ionViewWillEnter(){
     this.storage.get('month').then((val)=>{
-      this.month=val;
-      console.log(this.month);
+      this.month=val; 
+      console.log(val);
 
       if(this.month==null){
         this.month = [];
@@ -28,18 +34,8 @@ export class HomePage {
       }
 
           });
-
-    
-    
-    
-    
-    
-
   }
 
-ngOnDestroy(){
- this.saveData();
-}
 
   presentAlert() {
     let alert = this.alertCtrl.create({
@@ -49,7 +45,8 @@ ngOnDestroy(){
         {
           text:'กรอกข้อมูล',
           handler : ()=> {
-            this.nav.setRoot(MoneyDetailPage ,{month:this.month}, {animate: true, direction: 'forward'});
+            this.storage.set('month', this.month);
+            this.nav.setRoot(MoneyDetailPage ,{month:this.month[this.month.length-1]}, {animate: true, direction: 'forward'});
           }
         }
       ]

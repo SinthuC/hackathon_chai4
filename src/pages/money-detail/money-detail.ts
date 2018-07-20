@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,Nav } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
+import { Month } from '../../models/month';
+
+import { HomePage } from '../../pages/home/home'
 /**
  * Generated class for the MoneyDetailPage page.
  *
@@ -14,27 +17,66 @@ import { Storage } from '@ionic/storage';
   templateUrl: 'money-detail.html',
 })
 export class MoneyDetailPage {
-  public anArray:any=[];
   private monthName:string[]
   private date = new Date();
   private monthN:string;
-
-  constructor(public navCtrl: NavController, public navParams: NavParams,private storage: Storage) {
-    this.monthName = ["January", "February", "March", "April", "May", "June",
-    "July", "August", "September", "October", "November", "December"];
-
+  month:Month;
+  monthArray:Month[];
+  constructor(public navCtrl: NavController, public navParams: NavParams,private storage: Storage,private nav:Nav) {
+    this.monthName = ["มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน",
+    "กรกฏาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม"];
     this.monthN = this.monthName[this.date.getMonth()];
+    this.monthArray = []
+    
   }
 
   ngOnInit(){
+    this.month = this.navParams.get('month');
+    this.month.earlyExpense = [];
   
-  }
-  ionViewDidLoad() {
 
+  //  this.month.dayInMonth =3;
+  console.log(this.month);
   }
+
   
+  
+
+   getDaysInMonth(month,year) {
+   return new Date(year, month, 0).getDate();
+  }
+
   Add(){
-    this.anArray.push({'value':''});
+    this.month.earlyExpense.push({'detail':'','amount':0});
     }
+
+  onSave(){
+    this.month.dayInMonth = this.getDaysInMonth(this.date.getMonth()+1,this.date.getFullYear())
+    this.month.startDay = this.date.getDate();
+   // this.month.limitExpense =
+
+    this.storage.get('month').then((val) => {
+      this.monthArray = val
+      this.monthArray[this.monthArray.length-1]=this.month;
+      this.saveData();
+    });
+    
+    
+    
+    
+    this.nav.setRoot(HomePage,{},{animate: true, direction: 'forward'});
+  }
+
+  saveData(){
+  
+    console.log("monthArray",this.monthArray);
+    this.storage.set('month',this.monthArray);
+  }
+
+  getEarlyExpense(){
+    for(let i = 0 ; i < this.month.earlyExpense.length-1;i++){
+
+    }
+  }
 
 }
