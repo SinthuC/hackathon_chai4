@@ -20,18 +20,18 @@
   <h1>กรอกรายละเอียดรายรับ</h1>
   <ion-item>
     <ion-label fixed>รายละเอียด</ion-label>
-    <ion-input type="text"></ion-input>
+    <ion-input type="text" [(ngModel)]="detail"></ion-input>
   </ion-item>
   <ion-item>
     <ion-label fixed>จำนวนเงิน</ion-label>
-    <ion-input type="text"></ion-input>
+    <ion-input type="text" [(ngModel)]="amount"></ion-input>
   </ion-item>
   <ion-item>
     <ion-label fixed>หมายเหตุ</ion-label>
-    <ion-input type="text"></ion-input>
+    <ion-input type="text" [(ngModel)]="etc"></ion-input>
   </ion-item>
 
   <div>
-    <button ion-button>Save</button>
+    <button ion-button (click)="pushToDay()">Save</button>
   </div>
 </ion-content>

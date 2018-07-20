@@ -17,6 +17,10 @@ export class HomePage {
     events.subscribe('paid', () => {
       this.navCtrl.setRoot(this.navCtrl.getActive().component);
     })
+
+    events.subscribe('received', () => {
+      this.navCtrl.setRoot(this.navCtrl.getActive().component);
+    })
   }
   ngOnInit(){
 
@@ -73,6 +77,14 @@ export class HomePage {
     const sum = this.modal.create('SummarymodalPage',{'idx':idx});
 
     sum.present();
+  }
+
+  getColor(status:string){
+if(status=='pay'){
+  return 'green';
+}else{
+  return 'red';
+}
   }
 
 }
