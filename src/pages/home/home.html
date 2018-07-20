@@ -7,8 +7,17 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding overflow-scroll="false">
-  
+<ion-content padding overflow-scroll="false"  center text-center>
+  <ion-label class="myOverlay2">11/05/2018</ion-label>
+  <ion-card class="myCard" center style="border:none;">
+    <img src="https://i.stack.imgur.com/ma4sx.png">
+    <div class="myOverlay">
+      <ion-label>จำนวนเงินคงเหลือที่สามารถใช้ได้ในวันนี้</ion-label>
+      <ion-label style="font-size: 100%">500 bath</ion-label>
+    </div>
+  </ion-card>
+  <button ion-button (click)="reModal()">+</button>
+  <button ion-button (click)="payModal()">-</button>
 </ion-content>
 
 <ion-footer >

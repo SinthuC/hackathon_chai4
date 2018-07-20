@@ -7,28 +7,33 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>รายจ่าย  </ion-title>
+    <ion-title>รายจ่าย </ion-title>
+    <div end>
+      <button ion-button (click)="closeModal()">close</button>
+    </div>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-<h1>กรอกรายละเอียดรายจ่าย</h1>
-<ion-item>
+  <h2>กรอกรายละเอียดรายจ่าย</h2>
+  <ion-item>
     <ion-label fixed>รายละเอียด</ion-label>
     <ion-input type="text"></ion-input>
   </ion-item>
+
   <ion-item>
-      <ion-label fixed>ราคา</ion-label>
-      <ion-input type="text"></ion-input>
-    </ion-item>
-    <ion-item>
-        <ion-label fixed>หมายเหตุ</ion-label>
-        <ion-input type="text"></ion-input>
-      </ion-item>
-          
+    <ion-label fixed>ราคา</ion-label>
+    <ion-input type="number"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label fixed>หมายเหตุ</ion-label>
+    <ion-input type="text"></ion-input>
+  </ion-item>
+
   <div>
-      <button ion-button>Save</button>
-    </div>
+    <button ion-button>Save</button>
+  </div>
 </ion-content>
